@@ -1,3 +1,0 @@
-[submodule "03-orchestration/--force"]
-	path = 03-orchestration/--force
-	url = https://github.com/mage-ai/mlops.git

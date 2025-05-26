@@ -3,6 +3,25 @@ blocks:
   color: null
   configuration:
     file_source:
+      path: unit_2_training/global_data_products/training_set/xgboost.py
+    global_data_product:
+      uuid: unit_2_training_set
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: training_set/xgboost
+  retry_config: null
+  status: executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: training_set/xgboost
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
       path: unit_2_training/transformers/hyperparameter_tuning/xgboost.py
   downstream_blocks: []
   executor_config: null
@@ -11,10 +30,11 @@ blocks:
   language: python
   name: Hyperparameter tuning/XGBoost
   retry_config: null
-  status: updated
+  status: failed
   timeout: null
   type: transformer
-  upstream_blocks: []
+  upstream_blocks:
+  - training_set/xgboost
   uuid: hyperparameter_tuning/xgboost
 cache_block_output_in_memory: false
 callbacks: []

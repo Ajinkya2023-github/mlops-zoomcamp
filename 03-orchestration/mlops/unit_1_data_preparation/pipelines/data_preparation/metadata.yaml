@@ -5,6 +5,12 @@ blocks:
     file_source:
       path: unit_1_data_preparation/data_loaders/ingest.py
   downstream_blocks:
+  - ingest_time_series_bar_chart_d1
+  - missing_values_for_ingest
+  - unique_values_for_ingest
+  - most_frequent_values_for_ingest
+  - summary_overview_for_ingest
+  - feature_profiles_for_ingest
   - prepare
   executor_config: null
   executor_type: local_python

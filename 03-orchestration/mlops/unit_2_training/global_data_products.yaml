@@ -7,4 +7,5 @@ unit_2_training_set:
   repo_path: /home/src/mlops/unit_2_training
   settings:
     dynamic_block: {}
-    hyperparameter_tuning/sklearn: {}
+    load_models: {}
+    training_set: {}

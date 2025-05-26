@@ -93,11 +93,12 @@ run_pipeline_in_one_process: false
 settings:
   triggers: null
 spark_config: {}
-tags: []
+tags:
+- sklearn_training
 type: python
 uuid: sklearn_training
 variables:
   max_evaluations: 50
   random_state: 7
-variables_dir: /home/src/mage_data/unit_1_data_preparation
+variables_dir: /home/src/mage_data/unit_2_training
 widgets: []

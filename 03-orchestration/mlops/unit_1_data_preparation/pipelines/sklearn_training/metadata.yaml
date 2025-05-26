@@ -7,7 +7,7 @@ blocks:
     global_data_product:
       uuid: training_set
   downstream_blocks:
-  - load_models
+  - hyperparameter_tuning/sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -31,7 +31,7 @@ blocks:
   language: markdown
   name: Dynamic block
   retry_config: null
-  status: not_executed
+  status: updated
   timeout: null
   type: markdown
   upstream_blocks: []
@@ -39,21 +39,41 @@ blocks:
 - all_upstream_blocks_executed: true
   color: teal
   configuration:
+    dynamic: true
     file_source:
       path: unit_1_data_preparation/custom/load_models.py
-  downstream_blocks: []
+  downstream_blocks:
+  - hyperparameter_tuning/sklearn
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: Load models
   retry_config: null
-  status: not_executed
+  status: executed
   timeout: null
   type: custom
-  upstream_blocks:
-  - training_set
+  upstream_blocks: []
   uuid: load_models
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/transformers/hyperparameter_tuning/sklearn.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Hyperparameter tuning/sklearn
+  retry_config: null
+  status: failed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_models
+  - training_set
+  uuid: hyperparameter_tuning/sklearn
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -76,5 +96,8 @@ spark_config: {}
 tags: []
 type: python
 uuid: sklearn_training
+variables:
+  max_evaluations: 50
+  random_state: 7
 variables_dir: /home/src/mage_data/unit_1_data_preparation
 widgets: []
